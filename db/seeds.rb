@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+recipes = File.readlines('db/pdt_recipes.txt')
+recipes.map! {|recipe| recipe.strip}.reject! {|recipe| recipe.empty?}
+
+recipes.slice_before {|recipe| recipe.upcase == recipe}.map do |recipe|
+  Cocktail.new_from_book(recipe)
+end
