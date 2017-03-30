@@ -32,6 +32,7 @@ module GetRektApi
 				resource '*', :headers => :any, :methods => [:get]
 			end
 		end
+    config.autoload_paths << Rails.root.join('lib')
 
   end
 end
