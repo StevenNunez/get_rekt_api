@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :cocktails, only: [:index, :show]
+  namespace :v1 do
+    resources :cocktails, only: [:index, :show]
+  end
 end
